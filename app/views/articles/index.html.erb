@@ -1,0 +1,13 @@
+<section class="container">
+    <h1 class="fw-bold">Articles</h1>
+
+    <% unless @articles.empty? then %>
+        <div class="row">
+        <% @articles.each do |article| %>
+                <%= render partial: "articles/card", locals: {article: article} %>
+        <% end%>
+        </div>
+    <% else %>
+        <p>There's no articles here :(</p>
+    <% end%>
+</section>
