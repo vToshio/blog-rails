@@ -18,11 +18,11 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <header>
       <%= render "layouts/navigation" %>
     </header>
-    <main>
+    <main class="flex-shrink-0 min-vh-100">
       <%= yield %>
     </main>
     <%= render "layouts/footer" %>
