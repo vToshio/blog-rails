@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 
   # Action de atualização de artigo
   def update
-    if @article.update
+    if @article.update(article_params)
       redirect_to @article
     else
       render "edit", status: :unprocessable_entity # Erro de processamento
