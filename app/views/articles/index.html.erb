@@ -1,5 +1,8 @@
-<section class="container">
-    <h1 class="fw-bold">Articles</h1>
+<section class="container my-4">
+    <div class="d-flex gap-3 align-items-center mb-4">
+        <h1 class="fw-bold">Articles</h1>
+        <%= link_to "Publish New Article", new_article_path, class: "btn btn-outline-success" %>
+    </div>
 
     <% unless @articles.empty? then %>
         <div class="row">

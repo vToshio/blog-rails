@@ -1,0 +1,17 @@
+<section class="my-4 w-100">
+    <div class="btn-group p-3">
+        <%= link_to "<i class='bi bi-box-arrow-left'></i>".html_safe, articles_path, class: "btn btn-outline-primary"%>
+        <%= link_to "<i class='bi bi-pencil'></i>".html_safe, edit_article_path(@article), class: "btn btn-outline-secondary" %>
+        <%= button_to "<i class='bi bi-trash'></i>".html_safe, article_path(@article), method: :delete, data: { turbo_confirm: "Are you sure?" }, form: { class: "btn btn-outline-danger" }, class: "unstyled-button" %>
+    </div>
+</section>
+<section class="container">
+    <div class="d-block">
+        <h1><%= @article.title %></h1>
+        <p><%= format_br_datetime(@article.created_at) %> - <%= @article.description %></p>
+    </div>
+    <div class="">
+        <p><%= @article.content %></p>
+    </div>
+
+</section>

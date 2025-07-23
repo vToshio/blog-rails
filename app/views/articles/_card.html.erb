@@ -2,6 +2,7 @@
     <div class="rounded-5 bg-dark text-light p-4 mx-auto mb-3">
         <div class="m-4 p-2">
             <h2><%= article.title %></h2>
+            <p><%= format_br_datetime(article.created_at) %></p>
             <p><%= article.description %></p>
         </div>
         <div class="d-flex justify-content-center align-items-middle gap-2">
