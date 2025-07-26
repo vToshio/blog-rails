@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      flash[:notice] = "Article was created successfully."
       redirect_to @article # Redirecionamento para o show do artigo
     else
       render "new", status: :unprocessable_entity # Erro de processamento
@@ -33,6 +34,7 @@ class ArticlesController < ApplicationController
   # Action de atualização de artigo
   def update
     if @article.update(article_params)
+      flash[:notice] = "Article was updated successfully."
       redirect_to @article
     else
       render "edit", status: :unprocessable_entity # Erro de processamento
