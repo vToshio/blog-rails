@@ -1,14 +1,27 @@
-<div class="col col-sm-6 col-md-4">
-    <div class="rounded-5 bg-dark text-light p-4 mx-auto mb-3">
-        <div class="m-4 p-2">
-            <h2><%= article.title %></h2>
-            <p><%= format_br_datetime(article.created_at) %></p>
-            <p><%= article.description %></p>
+<div class="col col-sm-6 col-md-4 my-3">
+    <div class="card text-center">
+    <div class="card-header">
+        Created By Vinícius Toshio
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"><%= article.title %></h5>
+        <p class="card-text"><%= article.description %></p>
+
+        <div class="d-flex justify-content-center gap-2">
+            <%= link_to "Read", article, class: "btn btn-outline-success" %>
+            <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-primary" %>
+            <%= button_to "Delete", article, method: :delete, data:{turbo_confirm: "Are you sure?"}, form:{ class: "btn btn-outline-danger"}, class: "unstyled-button" %>
         </div>
-        <div class="d-flex justify-content-center align-items-middle gap-2">
-            <%= link_to "Read more", article_path(article), class: "btn btn-outline-primary" %>
-            <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-secondary" %> 
-            <%= button_to "Delete", article_path(article), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
-        </div>
+    </div>
+    <div class="card-footer text-body-secondary">
+        <small>
+            Created at <%= format_br_datetime(article.created_at) %>
+        </small> 
+        <% unless article.created_at === article.updated_at then %>
+            <small>
+                - Updated at <%= format_br_datetime(article.updated_at) %>
+            </small>
+        <% end %>
+    </div>
     </div>
 </div>
